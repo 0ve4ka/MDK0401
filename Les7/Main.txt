@@ -1,0 +1,22 @@
+package org.example;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class Main {
+    public static void main(String[] args) {
+String link = "https://javarush.com/groups/posts/2007-legkiy-parsing-html-s-pomojshjhju-jsoup";
+try{
+    Document doc = Jsoup.connect(link).get();
+    Elements les = doc.select("div");
+//    System.out.println(les);
+    for(Element element: les)
+        System.out.println(element.text());
+}
+catch (Exception e){
+    System.out.println(e.getMessage());
+}
+    }
+}
